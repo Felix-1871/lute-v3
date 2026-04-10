@@ -9,7 +9,7 @@
 FROM python:3.11-slim-bookworm
 
 # Build args
-ARG INSTALL_EVERYTHING=false
+ARG INSTALL_EVERYTHING=true
 
 # Install base.
 COPY pyproject.toml .
