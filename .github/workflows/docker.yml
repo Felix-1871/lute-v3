@@ -12,7 +12,10 @@ jobs:
     steps:
     - name: lowercase the repository owner
       run: echo "owner=$(echo ${{ github.repository_owner }} | tr '[:upper:]' '[:lower:]')" >> $GITHUB_ENV
-    - uses: actions/checkout@v4
+    - name: Check out the repository
+      uses: actions/checkout@v4
+      with:
+        submodules: recursive
     - name: Build the Docker image
       run: |
         docker build -t lute:latest -f docker/Dockerfile .
